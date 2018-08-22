@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def search2
-    @users = User.where("username = '" + params[:search] + "'")
+    @users = User.where(username: params[:search])
     render 'sql_injection'
   end
 
@@ -23,9 +23,7 @@ class PagesController < ApplicationController
   end
 
   def content1
-    xml_doc  = Nokogiri::XML(params[:content]) do |config|
-      config.options = Nokogiri::XML::ParseOptions::NOENT
-    end
+    xml_doc  = Nokogiri::XML(params[:content])
 
     @content = xml_doc
 

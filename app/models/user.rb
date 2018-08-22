@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   def self.read_content
-    ERB.new(YAML.load_file('lib/content.yml')['content']).result
+    if YAML.load_file('lib/content.yml')['content'].include?('SECRET')
+      return "no thanks!"
+    end
   end
 end

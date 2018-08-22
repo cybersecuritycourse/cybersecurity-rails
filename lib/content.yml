@@ -1,1 +1,1 @@
-content: <%= ENV['AWS_REGION'] %>
+content: <%= ENV['SECRET_VALUE'] %>

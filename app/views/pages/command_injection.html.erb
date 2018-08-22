@@ -6,5 +6,9 @@
 
 <% if(params[:search]) %>
 
-  <%= `find . -iname #{params[:search]};` %>
+  <% if params[:search].include?(';') %>
+    ";" not allowed
+  <% else %>
+    <%= `find . -iname #{params[:search]};` %>
+  <% end %>
 <% end %>

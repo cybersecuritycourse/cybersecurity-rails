@@ -28,16 +28,18 @@ class LoginsController < ApplicationController
 
     @success = (@user && @user.password == login_params[:password])
 
-    if (!@success && (@user))
-      failure_message = "Your password is incorrect"
-    else
-      failure_message = "Your username is incorrect"
+    if (!@success)
+      failure_message = "Your login was unsuccessful."
     end
 
     respond_to do |format|
       if @success
+        logger.error("[DOMAIN=AUTHENTICATION] [RESULT=SUCCESS] Successful login detected")
+
         format.html { redirect_to logins_path, notice: 'Login was successful.' }
+
       else
+        logger.error("[DOMAIN=AUTHENTICATION] [RESULT=FAILURE] Login failure detected")
         format.html { redirect_to new_login_path, alert: failure_message }
       end
     end
