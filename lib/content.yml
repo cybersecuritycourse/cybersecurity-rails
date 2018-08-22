@@ -1,0 +1,1 @@
+content: <%= ENV['AWS_REGION'] %>

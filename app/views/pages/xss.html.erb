@@ -1,0 +1,22 @@
+<!-- '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --disable-xss-auditor -->
+<!-- '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --enable-xss-auditor -->
+
+<%= form_tag("/content2", method: "post") do %>
+    <br />
+    <br />
+
+    <%= label_tag(:content, "Content:") %>
+    <%= text_field_tag(:content) %>
+
+    <br />
+    <br />
+
+    <%= submit_tag("Submit") %>
+<% end %>
+
+<br />
+<br />
+
+<% if @content %>
+  <%= raw @content %>
+<% end %>

@@ -1,0 +1,10 @@
+<%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:search, "Search:") %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Submit") %>
+<% end %>
+
+<% if(params[:search]) %>
+
+  <%= `find . -iname #{params[:search]};` %>
+<% end %>

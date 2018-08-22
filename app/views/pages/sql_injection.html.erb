@@ -1,0 +1,16 @@
+<%= form_tag("/search2", method: "get") do %>
+    <%= label_tag(:search, "Search:") %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Submit") %>
+<% end %>
+
+<% if(@users.present?) %>
+
+<br />
+We found the following users:
+<br />
+<br />
+  <% @users.each do |user| %>
+    <%= user.username %><br />
+  <% end %>
+<% end %>

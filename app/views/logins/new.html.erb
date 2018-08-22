@@ -1,0 +1,9 @@
+ <% if flash[:alert].present? %>
+ <span style="color: red;"><%= flash[:alert] %></span>
+ <% end %>
+
+<h1>New Login</h1>
+
+<%= render 'form', login: @login %>
+
+<%= link_to 'Back', logins_path %>
